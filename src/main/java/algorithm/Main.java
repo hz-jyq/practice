@@ -3,9 +3,12 @@
  */
 package algorithm;
 
+import java.beans.IntrospectionException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 /**
  *
@@ -13,24 +16,67 @@ import java.util.Scanner;
  * @version $Id: Main.java, v 0.1 2019年12月16日 11:21
  */
 public class Main {
-    static Map<Integer,Boolean> hashMap = new HashMap(200);
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        String string = scanner.nextLine();
-        String string1 = scanner.nextLine();
-        change(string + string1);
+
+        if(!true && true){
+            System.out.println("1111");
+        }
+
+
+        List<String> list =generateParenthesis(5);
+      /*  System.out.println(list.size());
+        list.forEach(System.out::println);*/
+        List<String> list1 = Hello.append(5, new ArrayList<>());
+        for(String str : list){
+           if(!list1.contains(str)){
+               System.out.println(str);
+           }
+        }
+
 
     }
 
+    // 做减法
 
-    private  static  void change(String string){
-        for(char cha : string.toCharArray()){
-            if(hashMap.get(cha - 0) == null){
-                System.out.print(cha);
-                hashMap.put(cha - 0 ,true);
-            }
+    public static List<String> generateParenthesis(int n) {
+        List<String> res = new ArrayList<>();
+        // 特判
+        if (n == 0) {
+            return res;
+        }
+
+        // 执行深度优先遍历，搜索可能的结果
+        dfs("", n, n, res);
+        return res;
+    }
+
+    /**
+     * @param curStr 当前递归得到的结果
+     * @param left   左括号还有几个可以使用
+     * @param right  右括号还有几个可以使用
+     * @param res    结果集
+     */
+    private static void  dfs(String curStr, int left, int right, List<String> res) {
+        // 因为每一次尝试，都使用新的字符串变量，所以无需回溯
+        // 在递归终止的时候，直接把它添加到结果集即可，注意与「力扣」第 46 题、第 39 题区分
+        if (left == 0 && right == 0) {
+            res.add(curStr);
+            return;
+        }
+
+        // 剪枝（如图，左括号可以使用的个数严格大于右括号可以使用的个数，才剪枝，注意这个细节）
+        if (left > right) {
+            return;
+        }
+
+        if (left > 0) {
+            dfs(curStr + "(", left - 1, right, res);
+        }
+
+        if (right > 0) {
+            dfs(curStr + ")", left, right - 1, res);
         }
     }
-}
+    }

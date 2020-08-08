@@ -7,6 +7,9 @@ import java.util.Scanner;
 
 public class Dynamic {
 
+
+
+
     public static void main(String[] args) {
 /* 5
 7
@@ -16,6 +19,7 @@ public class Dynamic {
 4   5   2   6   5*/
 
         Scanner scanner = new Scanner(System.in);
+
         int count = scanner.nextInt();
         Integer[][] integers = new Integer[count][count],resultIntegers = new Integer[count][count];
         scanner.nextLine();

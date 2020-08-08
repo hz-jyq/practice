@@ -6,7 +6,6 @@ import java.util.Comparator;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
-import com.joyowo.smarthr.salary.tool.engine.Node;
 import algorithm.engine.Node;
 import algorithm.engine.Nodes;
 import cn.hutool.core.util.StrUtil;
@@ -45,7 +44,7 @@ public class FormulaUtils {
      */
     public static List<Node> analyze(String exp){
         if (StrUtil.isBlank(exp)) {
-            throw new SalaryCaculationException("illegal parameter.");
+            throw new RuntimeException("illegal parameter.");
         }
         exp = exp.replaceAll("\\s*", ""); //去掉所有的空格（为了方便中间存在空格算合法）
 
@@ -76,7 +75,7 @@ public class FormulaUtils {
                         }
                     }
                     if (!"(".equals(last)) {
-                        throw new SalaryCaculationException("illigal express.");
+                        throw new RuntimeException("illigal express.");
                     }
                 } else if (!sym.isEmpty()) {
                     String s = String.valueOf(c);
@@ -104,7 +103,7 @@ public class FormulaUtils {
         while (!sym.isEmpty()) {
             String last = sym.pop();
             if ("()".indexOf(last) >= 0) {
-                throw new SalaryCaculationException("illigal express.");
+                throw new RuntimeException("illigal express.");
             }
             list.add(Nodes.createSymbolNode(last));
         }
@@ -136,7 +135,7 @@ public class FormulaUtils {
                 } else if ("/".equals(s)) {
                     result = d2.divide(d1,2, BigDecimal.ROUND_HALF_UP);
                 } else {
-                    throw new SalaryCaculationException("illigal symbol("+s+").");
+                    throw new RuntimeException("illigal symbol("+s+").");
                 }
                 val.push(result);
             } else {

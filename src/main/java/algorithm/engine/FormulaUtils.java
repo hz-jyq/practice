@@ -143,7 +143,11 @@ public class FormulaUtils {
         return  val.getFirst() == null ? result : val.getFirst();
     }
 
+    public static void main(String[] args) {
+       List<Node> nodes =   analyze("a + b +c");
+       System.out.println(nodes);
 
+    }
 
 
 }

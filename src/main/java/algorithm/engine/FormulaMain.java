@@ -1,9 +1,10 @@
 package algorithm.engine;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.stream.Stream;
+
+import cn.hutool.core.collection.CollectionUtil;
 import org.apache.commons.lang3.ArrayUtils;
 
 /**
@@ -12,37 +13,50 @@ import org.apache.commons.lang3.ArrayUtils;
  */
 public class FormulaMain {
 
-    static String[] SYMBOL = new String[]{"+","-","*","/"};
+    static String[] SYMBOL = new String[]{"+", "-", "*", "/", "(", ")"};
 
-    static String[]  PRIORITY = new String[]{"+-","*/"};
+    private static final String[] PRIORITY = {"+,-", "*,/"};
 
-
-    private static List<Node> analyze(String string){
-        String  exp = string.replaceAll("\\s*", "");
-        List<Node> nodes = new LinkedList<>();
-        Queue<String> symbolNodes = new LinkedList();
-        for(char c : exp.toCharArray()){
-            String str = String.valueOf(c);
-            if(ArrayUtils.contains(SYMBOL,str)){
-                //比较大小
-               // if()
-                symbolNodes.add(str);
-            }else{
-                nodes.add(Nodes.createDefaultNode(str));
-                while(!symbolNodes.isEmpty()){
-                    nodes.add(Nodes.createSymbolNode(symbolNodes.poll()));
-               }
+    static Comparator<String> com = new Comparator<String>() {
+        @Override
+        public int compare(String o1, String o2) {
+            int i = 0;
+            int j = 0;
+            for (String str : PRIORITY) {
+                i = str.indexOf(o1);
+                j = str.indexOf(o2);
             }
+            return i - j;
         }
-        return  nodes;
-    }
+    };
+
 
     public static void main(String[] args) {
-
-        //a b +
-        // a b c / + ;    a b  + c +
-        List<Node>  nodes = analyze("a + b / c");
-        System.out.println(nodes);
+        String str1 = "3+7/7*6";
+        List linkedList = new LinkedList();
+        Deque<String> queue = new LinkedList();
+        for (char c : str1.toCharArray()) {
+            String ch = String.valueOf(c);
+            if (Arrays.asList(SYMBOL).contains(ch)) {
+                if (c == '(' || queue == null) {
+                    queue.push(ch);
+                    continue;
+                }
+                while (queue.peek() != null && com.compare(ch, queue.peek()) < 1) {
+                    linkedList.add(queue.poll());
+                }
+                queue.push(ch);
+                continue;
+            } else {
+                linkedList.add(c);
+                continue;
+            }
+        }
+        for(String string : queue){
+            linkedList.add(string);
+        }
+        System.out.println(linkedList);
     }
+
 
 }

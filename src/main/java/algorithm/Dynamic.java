@@ -3,20 +3,33 @@
  */
 package algorithm;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Dynamic {
 
 
+    /**
+     *
+     * @param args
+     */
+
 
 
     public static void main(String[] args) {
-/* 5
+        Boolean flag = null;
+
+        System.out.println(flag!= null && flag ? 1 :0);
+
+       /* List<?> list = new ArrayList<String>();
+
+*//* 5
 7
 3   8
 8   1   0
 2   7   4   4
-4   5   2   6   5*/
+4   5   2   6   5*//*
 
         Scanner scanner = new Scanner(System.in);
 
@@ -42,7 +55,7 @@ public class Dynamic {
             }
         }
 
-        System.out.print(resultIntegers[0][0]);
+        System.out.print(resultIntegers[0][0]);*/
     }
 
     private static Integer max(Integer left, Integer right) {

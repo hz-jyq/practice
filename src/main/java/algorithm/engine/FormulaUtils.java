@@ -144,8 +144,8 @@ public class FormulaUtils {
     }
 
     public static void main(String[] args) {
-       List<Node> nodes =   analyze("a + b +c");
-       System.out.println(nodes);
+       List<Node> nodes =   analyze("3+7/7*6");
+       nodes.stream().map(p -> p.getNodeName()).forEach(System.out :: println);
 
     }
 

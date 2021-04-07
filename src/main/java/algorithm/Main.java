@@ -3,6 +3,8 @@
  */
 package algorithm;
 
+import com.google.common.collect.Lists;
+
 import java.beans.IntrospectionException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -19,21 +21,25 @@ public class Main {
 
     public static void main(String[] args) {
 
+            List<Integer> list = Lists.newArrayList(1,2,3);
+            list.stream().forEach(System.out :: println);
 
-        if(!true && true){
+
+
+        /*if(!true && true){
             System.out.println("1111");
         }
 
 
         List<String> list =generateParenthesis(5);
-      /*  System.out.println(list.size());
-        list.forEach(System.out::println);*/
+      *//*  System.out.println(list.size());
+        list.forEach(System.out::println);*//*
         List<String> list1 = Hello.append(5, new ArrayList<>());
         for(String str : list){
            if(!list1.contains(str)){
                System.out.println(str);
            }
-        }
+        }*/
 
 
     }

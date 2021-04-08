@@ -33,7 +33,7 @@ public class FormulaMain {
 
 
     public static void main(String[] args) {
-        String str1 = "3*(7+7-6)-6";
+        String str1 = "3*(7+7-6-6)-6";
         List linkedList = new LinkedList();
         Deque<String> queue = new LinkedList();
         for (char c : str1.toCharArray()) {

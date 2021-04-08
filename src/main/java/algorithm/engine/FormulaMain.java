@@ -15,24 +15,25 @@ public class FormulaMain {
 
     static String[] SYMBOL = new String[]{"+", "-", "*", "/", "(", ")"};
 
-    private static final String[] PRIORITY = {"+,-", "*,/"};
 
-    static Comparator<String> com = new Comparator<String>() {
-        @Override
-        public int compare(String o1, String o2) {
-            int i = 0;
-            int j = 0;
-            for (String str : PRIORITY) {
-                i = str.indexOf(o1);
-                j = str.indexOf(o2);
-            }
-            return i - j;
+    static int getValue(String string) {
+        if ("+".equals(string) || "-".equals(string)) {
+            return 1;
+        } else if (("/".equals(string) || "*".equals(string))) {
+            return 2;
         }
-    };
+        return 0;
+    }
+
+    static int comparator(String o1, String o2) {
+        return getValue(o1) - getValue(o2);
+    }
+
+    ;
 
 
     public static void main(String[] args) {
-        String str1 = "3+7/7*6";
+        String str1 = "3*(7+7-6)-6";
         List linkedList = new LinkedList();
         Deque<String> queue = new LinkedList();
         for (char c : str1.toCharArray()) {
@@ -42,7 +43,15 @@ public class FormulaMain {
                     queue.push(ch);
                     continue;
                 }
-                while (queue.peek() != null && com.compare(ch, queue.peek()) < 1) {
+                if(c == ')'){
+                   String pop = queue.pop();
+                   while (!pop.equals("(")) {
+                        linkedList.add(pop);
+                        pop = queue.pop();
+                   }
+                   continue;
+                }
+                while (queue.peek() != null && comparator(ch, queue.peek()) < 1) {
                     linkedList.add(queue.poll());
                 }
                 queue.push(ch);
@@ -52,7 +61,7 @@ public class FormulaMain {
                 continue;
             }
         }
-        for(String string : queue){
+        for (String string : queue) {
             linkedList.add(string);
         }
         System.out.println(linkedList);

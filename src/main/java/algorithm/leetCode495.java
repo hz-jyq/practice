@@ -1,6 +1,5 @@
 package algorithm;
 
-import org.jboss.netty.channel.UpstreamMessageEvent;
 
 /**
  * @Author jyq

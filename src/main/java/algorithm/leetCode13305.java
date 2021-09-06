@@ -43,7 +43,7 @@ public class leetCode13305 {
     public static void main(String[] args){
       /*  BigDecimal bigDecimal = new BigDecimal("1");
         System.out.println(bigDecimal.compareTo(null));*/
-         User user2 = new User();
+         User user1 = new User();
     }
 
 

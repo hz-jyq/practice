@@ -16,7 +16,7 @@ public class OrdinaryPipelineTest {
        //List list =   Lists.newArrayList("111");
         Integer str =  testFunction(100,p -> p  * 2  + 1 + 1);
         System.out.println(str);
-       testFunction("财务退款",(x) -> System.out.println(x + "1111"));
+    //   testFunction("财务退款",(x) -> System.out.println(x + "1111"));
     }
 
     private static class DemoPipeline extends OrdinaryPipeline<String> {

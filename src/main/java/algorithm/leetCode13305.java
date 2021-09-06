@@ -40,10 +40,10 @@ public class leetCode13305 {
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
 
-    public static void main(String[] args) throws IllegalAccessException, InstantiationException {
+    public static void main(String[] args){
       /*  BigDecimal bigDecimal = new BigDecimal("1");
         System.out.println(bigDecimal.compareTo(null));*/
-         User user = new User();
+         User user1 = new User();
     }
 
 

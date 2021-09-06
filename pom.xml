@@ -57,12 +57,6 @@
             <artifactId>javassist</artifactId>
             <version>3.21.0-GA</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
-        <dependency>
-            <groupId>dom4j</groupId>
-            <artifactId>dom4j</artifactId>
-            <version>2.1.1</version>
-        </dependency>
 
 
         <dependency>

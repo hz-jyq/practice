@@ -21,8 +21,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-            List<Integer> list = Lists.newArrayList(1,2,3);
-            list.stream().forEach(System.out :: println);
+
+
+           /* List<Integer> list = Lists.newArrayList(1,2,3);
+            list.stream().forEach(System.out :: println);*/
 
 
 

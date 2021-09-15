@@ -7,16 +7,7 @@ public class OrdinaryPipelineTest {
 
 
     public static void main(String[] args) {
-    /*    Pipeline pipeline =
-                OrdinaryPipeline.getInstance(
-                        Arrays.asList(new DemoPipeline("1"), new DemoPipeline("2"), new DemoPipeline("3")));
-
-     System.out.println(pipeline.toString());*/
-        // Assert.assertEquals("1->2->3", pipeline.toString());
-       //List list =   Lists.newArrayList("111");
-        Integer str =  testFunction(100,p -> p  * 2  + 1 + 1);
-        System.out.println(str);
-    //   testFunction("财务退款",(x) -> System.out.println(x + "1111"));
+        testFunction("财务退款",(x) -> System.out.println(x + "1111"));
     }
 
     private static class DemoPipeline extends OrdinaryPipeline<String> {
@@ -35,15 +26,15 @@ public class OrdinaryPipelineTest {
 
 
 
-    public static <T>  void testFunction(String str, Consumer<Integer> action) {
+    public static <T>  void testFunction(String str, Consumer<T> action) {
         System.out.println(str + "开始");
-        action.accept(2);
+        action.accept(null);
         System.out.println(str + "结束");
     }
 
-    public static <T,R> R testFunction(T i, Function<T,R> function) {
+  /*  public static <T,R> R testFunction(T i, Function<T,R> function) {
         Function<T, T>  reslut =  Function.identity();
         // reslut.apply();
         return function.apply(i);
-    }
+    }*/
 }

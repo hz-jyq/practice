@@ -1,6 +1,9 @@
 package test;
 
 
+import com.google.common.collect.ImmutableMap;
+
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ThreadAlternatelyTest {
@@ -11,7 +14,7 @@ public class ThreadAlternatelyTest {
     public static  Integer       lock        = new Integer(0);
 
     public static void main(String[] args) throws InterruptedException {
-        thread(1, threadLock).start();
+       /* thread(1, threadLock).start();
         thread(2, threadLock1).start();
         synchronized (lock) {
             if (count != 2) {
@@ -30,7 +33,8 @@ public class ThreadAlternatelyTest {
                 }
             }
         }
-        Thread.currentThread().sleep(1000000);
+        Thread.currentThread().sleep(1000000);*/
+
 
     }
 

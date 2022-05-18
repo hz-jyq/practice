@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.leetCode;
 
 import java.util.Arrays;
 
@@ -26,7 +26,7 @@ import java.util.Arrays;
  *
  */
 
-public class leetCode108 {
+public class LeetCode108 {
 
     public static class TreeNode {
         int val;

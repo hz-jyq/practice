@@ -1,11 +1,21 @@
-package algorithm;
+package algorithm.leetCode;
 
 
 /**
  * @Author jyq
  * @Date 2020/7/2 10:07
  */
-public class leetCode495 {
+public class LeetCode495 {
+
+
+    /**
+     *
+     * @param timeSeries
+     * @param duration
+     * @return
+     */
+
+
 
     public static int findPoisonedDuration(int[] timeSeries, int duration) {
         if(timeSeries.length == 0){

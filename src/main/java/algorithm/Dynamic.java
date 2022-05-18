@@ -19,7 +19,7 @@ public class Dynamic {
 
     public static void main(String[] args) {
         Boolean flag = null;
-
+        
         System.out.println(flag!= null && flag ? 1 :0);
 
        /* List<?> list = new ArrayList<String>();

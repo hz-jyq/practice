@@ -1,12 +1,13 @@
-package algorithm;
+package algorithm.leetCode;
 
+import algorithm.User;
 import cn.hutool.core.bean.BeanUtil;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
-public class leetCode13305 {
+public class LeetCode13305 {
 
     /**
      * 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
@@ -41,9 +42,7 @@ public class leetCode13305 {
      */
 
     public static void main(String[] args){
-      /*  BigDecimal bigDecimal = new BigDecimal("1");
-        System.out.println(bigDecimal.compareTo(null));*/
-         User user2 = new User();
+        User user2 = new User();
     }
 
 

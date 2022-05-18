@@ -3,14 +3,24 @@
  */
 package algorithm;
 
-import com.google.common.collect.Lists;
 
-import java.beans.IntrospectionException;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import cn.hutool.json.JSON;
+import cn.hutool.json.JSONUtil;
+
+import javax.crypto.Cipher;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.DESKeySpec;
+import javax.crypto.spec.IvParameterSpec;
+import java.security.Key;
+import java.util.*;
+import java.util.concurrent.Callable;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -19,10 +29,45 @@ import java.util.Map;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
 
 
+      /*  List<Integer> arrayList = new ArrayList();
+        for(int i= 0;i <=100;i++){
+            arrayList.add(i);
+        }
+        List<FutureTask<String>> list = new ArrayList<>();
+        for(Integer string : arrayList) {
+
+            list.add(new FutureTask<>(new SyncTask(string)));
+        }
+       // System.out.println(list.get(0).get(10, TimeUnit.SECONDS));
+        for(FutureTask<String> stringFutureTask : list){
+            System.out.println(stringFutureTask.get(10, TimeUnit.SECONDS));
+        }*/
+       /* List<User> list = new ArrayList();
+        List<User> list1 = new ArrayList();
+        User user = new User();
+        user.setName("22");
+        list.add(user);
+        System.out.println(list.get(0).getName());
+        user.setName("3");
+        list1.add(user);
+        System.out.println(list.get(0).getName());*/
+
+
+
+
+       /* Map<String,Integer> rosterMap = new HashMap();
+        rosterMap.put(412723199606205126L + "" + 0L,0);
+        Integer integer= rosterMap.get(412723199606205126L + "" + 0L);
+        if(integer != null){
+            System.out.println(1);
+        }*/
+
+     /*   DateTime dateTime =   DateUtil.offsetMonth(DateUtil.parse("2022-01-01", DatePattern.NORM_DATE_PATTERN), -1);
+        System.out.println(dateTime);*/
            /* List<Integer> list = Lists.newArrayList(1,2,3);
             list.stream().forEach(System.out :: println);*/
 
@@ -46,7 +91,7 @@ public class Main {
 
     }
 
-    // 做减法
+    /*// 做减法
 
     public static List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
@@ -58,33 +103,29 @@ public class Main {
         // 执行深度优先遍历，搜索可能的结果
         dfs("", n, n, res);
         return res;
-    }
 
-    /**
-     * @param curStr 当前递归得到的结果
-     * @param left   左括号还有几个可以使用
-     * @param right  右括号还有几个可以使用
-     * @param res    结果集
+
      */
-    private static void  dfs(String curStr, int left, int right, List<String> res) {
-        // 因为每一次尝试，都使用新的字符串变量，所以无需回溯
-        // 在递归终止的时候，直接把它添加到结果集即可，注意与「力扣」第 46 题、第 39 题区分
-        if (left == 0 && right == 0) {
-            res.add(curStr);
-            return;
-        }
 
-        // 剪枝（如图，左括号可以使用的个数严格大于右括号可以使用的个数，才剪枝，注意这个细节）
-        if (left > right) {
-            return;
-        }
+    /*static class SyncTask implements Callable<String> {
 
-        if (left > 0) {
-            dfs(curStr + "(", left - 1, right, res);
-        }
+      public    Integer number;
 
-        if (right > 0) {
-            dfs(curStr + ")", left, right - 1, res);
+      public SyncTask(Integer number){
+          this.number = number;
+      }
+
+        @Override
+        public String call() throws Exception {
+            try {
+
+            }catch (Exception e){
+                return e.getMessage();
+            }finally {
+
+            }
+            return null;
         }
-    }
-    }
+    }*/
+
+}

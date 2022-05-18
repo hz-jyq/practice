@@ -1,9 +1,9 @@
 package algorithm;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import cn.hutool.core.collection.CollectionUtil;
+import com.google.common.collect.Lists;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class LRU<E>{
@@ -42,13 +42,10 @@ public class LRU<E>{
 
 
     public static void main(String[] args) {
-          LRU<String> lru = new LRU();
-          lru.put("1","2");
-          lru.put("2","3");
-          lru.put("1","2");
-          lru.put("4","4");
-          lru.put("5","5");
-          lru.getLRUList().forEach(System.out ::println );
+        List<Long> list = new ArrayList();
+        List<Long> list1 = new ArrayList();
+        list.add(1L);
+      ArrayList arrayList=   (ArrayList<Long>) CollectionUtil.intersection(list,list1);
 
     }
 
